@@ -51,7 +51,7 @@
               "prefix": "",
               "postfix": "",
               "pwsh": "<p:ps-blue>PS \u276F_</>",
-              "bash": "<p:ubuntu-orange>bash</>"
+              "bash": "<p:ubuntu-orange>\u276F_</>"
             }
           }
         },
