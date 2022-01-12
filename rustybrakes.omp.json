@@ -14,7 +14,7 @@
     "git-modified": "p:yellow",
     "git-diverged": "p:red",
     "git-ahead": "#B388FF",
-    "git-behind": "#B388FB",
+    "git-behind": "p:orange",
     "path-green": "#3EC669",
     "ps-blue":  "#0273B7",
     "ps-lightblue": "#7FD5EA",
@@ -51,7 +51,7 @@
               "prefix": "",
               "postfix": "",
               "pwsh": "<p:ps-blue>PS \u276F_</>",
-              "bash": "<p:ubuntu-orange>$</>"
+              "bash": "<p:ubuntu-orange>bash</>"
             }
           }
         },
@@ -61,18 +61,19 @@
           "foreground": "p:white",
           "properties": {
             "prefix": "",
-            "time_format": "3:04 PM"
+            "time_format": "15:04:05"
           }
         },
         {
           "type": "path",
-          "style": "diamond",
+          "style": "plain",
           "foreground": "p:path-green",
           "properties": {
-            "enable_hyperlink": true,
-            "prefix": "\uE5FF ",
+            "enable_hyperlink": false,
+            "prefix": "",
             "postfix": "",
-            "style": "agnoster_full"
+            "folder_icon": "\uf74a",
+            "style": "agnoster"
           }
         },
         {
@@ -81,104 +82,14 @@
           "trailing_diamond": "\uE0B4",
           "leading_diamond": " \uE0B6",
           "foreground": "p:git-foreground",
-          "foreground_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:white{{ end }}",
-            "{{ if gt .Ahead 0 }}p:black{{ end }}",
-            "{{ if gt .Behind 0 }}p:white{{ end }}"
-          ],
           "background": "p:git-background",
-          "background_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git-background{{ end }}",
-            "{{ if gt .Ahead 0 }}p:git-ahead{{ end }}",
-            "{{ if gt .Behind 0 }}p:git-behind{{ end }}"
-          ],
           "properties": {
-            "fetch_status": true,
-            "fetch_stash_count": true,
+            "fetch_status": false,
+            "fetch_stash_count": false,
             "fetch_upstream_icon": true,
             "prefix": "",
             "postfix": "",
-            "display_status_detail": true,
-            "branch_icon": ""
-          }
-        },
-        {
-          "type": "python",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "#E4F34A",
-          "background": "#29315A",
-          "properties": {
-            "prefix": "\uE235",
-            "postfix": "",
-            "display_version": false
-          }
-        },
-        {
-          "type": "go",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "#7FD5EA",
-          "background": "#29315A",
-          "properties": {
-            "prefix": "\uFCD1",
-            "postfix": "",
-            "display_version": false
-          }
-        },
-        {
-          "type": "node",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "#42E66C",
-          "background": "#29315A",
-          "properties": {
-            "prefix": "\uE718",
-            "postfix": "",
-            "display_version": false
-          }
-        },
-        {
-          "type": "ruby",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "#E64747",
-          "background": "#29315A",
-          "properties": {
-            "prefix": "\uE791",
-            "postfix": "",
-            "display_version": false
-          }
-        },
-        {
-          "type": "java",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "#E64747",
-          "background": "#29315A",
-          "properties": {
-            "prefix": "\uE738",
-            "postfix": "",
-            "display_version": false
-          }
-        },
-        {
-          "type": "julia",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "#9B6BDF",
-          "background": "#29315A",
-          "properties": {
-            "prefix": "\uE624",
-            "display_version": false
+            "branch_icon": "\ue725 "
           }
         },
         {
