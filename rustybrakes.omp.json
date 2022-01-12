@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "final_space": true,
+  "final_space": false,
   "palette": {
     "git-foreground": "#193549",
     "git": "#FFFB38",
@@ -12,13 +12,12 @@
     "ps-blue":  "#0273B7",
     "ps-lightblue": "#7FD5EA",
     "ubuntu-orange": "#D24413",
-    "ubuntu-purple": "#34024D",
+    "ubuntu-purple": "#77216F",
     "white": "#ffffff",
     "black": "#111111"
 },
   "blocks": [
     {
-      
       "type": "prompt",
       "alignment": "left",
       "segments": [
@@ -30,9 +29,9 @@
             "prefix": "",
             "postfix": "",
             "windows": "\uf871",
-            "ubuntu": "ubuntu",
+            "ubuntu": "<#D24413>ubuntu</>",
             "wsl": "wsl",
-            "wsl_separator": ""
+            "wsl_separator": ":"
           }
           
         },
@@ -46,10 +45,9 @@
               "prefix": "",
               "postfix": "",
               "pwsh": "<#0273B7>PS \u276F_</>",
-              "bash": "<#D24413>bash</>"
+              "bash": "<#D24413>$</>"
             }
-          },
-          "postfix": "\u2800"
+          }
         },
         {
           "type": "time",
@@ -182,13 +180,7 @@
             "postfix": "",
             "display_charging": true
           }
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "left",
-      "segments": [
+        },
         {
           "type": "executiontime",
           "style": "diamond",
@@ -204,13 +196,17 @@
           }
         },
         {
-          "type": "text",
-          "style": "diamond",
-          "foreground": "#7FD5EA",
+          "type": "shell",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "background": "transparent",
           "properties": {
-              "prefix": " ",
-              "text": "\u276F",
-              "postfix": ""
+            "mapped_shell_names": {
+              "prefix": "",
+              "postfix": "",
+              "pwsh": "<#7FD5EA>\u276F</>",
+              "bash": "<#77216F>$</>"
+            }
           }
         }
       ]
