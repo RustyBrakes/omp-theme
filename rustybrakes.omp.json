@@ -11,12 +11,8 @@
 
     "git-foreground": "p:white",
     "git-background": "#2a9d8f",
-    "git-modified": "p:yellow",
-    "git-diverged": "p:red",
-    "git-ahead": "#B388FF",
-    "git-behind": "p:orange",
     "path-green": "#3EC669",
-    "ps-blue":  "#0273B7",
+    "ps-blue":  "#0973C0",
     "ps-lightblue": "#7FD5EA",
     "ubuntu-orange": "#D24413",
     "ubuntu-purple": "#77216F"
@@ -28,18 +24,26 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "root",
+          "style": "plain",
+          "foreground": "p:yellow",
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          }
+        },
+        {
           "type": "os",
-          "style": "powerline",
+          "style": "plain",
           "foreground": "p:white",
           "properties": {
             "prefix": "",
             "postfix": "",
-            "windows": "\uf871",
+            "windows": "",
             "ubuntu": "<p:ubuntu-orange>ubuntu</>",
             "wsl": "wsl",
             "wsl_separator": ":"
-          }
-          
+          } 
         },
         {
           "type": "shell",
@@ -47,9 +51,9 @@
           "foreground": "p:white",
           "background": "transparent",
           "properties": {
+            "prefix": "",
+            "postfix": " ",
             "mapped_shell_names": {
-              "prefix": "",
-              "postfix": "",
               "pwsh": "<p:ps-blue>PS \u276F_</>",
               "bash": "<p:ubuntu-orange>\u276F_</>"
             }
@@ -72,8 +76,8 @@
             "enable_hyperlink": false,
             "prefix": "",
             "postfix": "",
-            "folder_icon": "\uf74a",
-            "style": "agnoster"
+            "folder_icon": "\uf07b",
+            "style": "agnoster_full"
           }
         },
         {
