@@ -29,7 +29,8 @@
           "foreground": "p:yellow",
           "properties": {
             "prefix": "",
-            "postfix": ""
+            "postfix": "",
+            "root_icon": "\uF0E7 "
           }
         },
         {
@@ -40,7 +41,7 @@
             "prefix": "",
             "postfix": "",
             "windows": "",
-            "ubuntu": "<p:ubuntu-orange>ubuntu</>",
+            "ubuntu": "<p:ubuntu-orange>ubuntu </>",
             "wsl": "wsl",
             "wsl_separator": ":"
           } 
