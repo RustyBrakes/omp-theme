@@ -29,7 +29,9 @@
           "properties": {
             "prefix": "",
             "postfix": "",
-            "windows": "\uf871"
+            "windows": "\uf871",
+            "ubuntu": "\uf31a",
+            "wsl": "(\uf871)"
           }
           
         },
