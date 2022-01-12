@@ -13,7 +13,7 @@
     "ps-lightblue": "#7FD5EA",
     "ubuntu-orange": "#D24413",
     "ubuntu-purple": "#34024D",
-    "white": "#FFDDFF",
+    "white": "#ffffff",
     "black": "#111111"
 },
   "blocks": [
@@ -30,8 +30,9 @@
             "prefix": "",
             "postfix": "",
             "windows": "\uf871",
-            "ubuntu": "\uf31a",
-            "wsl": "(\uf871)"
+            "ubuntu": "ubuntu",
+            "wsl": "wsl",
+            "wsl_separator": ""
           }
           
         },
@@ -45,7 +46,7 @@
               "prefix": "",
               "postfix": "",
               "pwsh": "<#0273B7>PS \u276F_</>",
-              "bash": "<#34024D>bash</>"
+              "bash": "<#D24413>bash</>"
             }
           },
           "postfix": "\u2800"
@@ -191,7 +192,7 @@
         {
           "type": "executiontime",
           "style": "diamond",
-          "trailing_diamond": "\uE0B4 ",
+          "trailing_diamond": "\uE0B4",
           "leading_diamond": " \uE0B6",
           "foreground": "#AEA4BF",
           "background": "#29315A",
