@@ -59,6 +59,17 @@
           }
         },
         {
+          "type": "az",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "p:azure-blue",
+          "background": "transparent",
+          "properties": {
+            "template": "{{ .EnvironmentName }}",
+            "prefix": " \uFD03 "
+          }
+        },
+        {
           "type": "time",
           "style": "plain",
           "foreground": "p:white",
@@ -77,17 +88,6 @@
             "postfix": "",
             "folder_icon": "\uf07b",
             "style": "agnoster_full"
-          }
-        },
-        {
-          "type": "az",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "p:azure-blue",
-          "background": "transparent",
-          "properties": {
-            "template": "{{ .EnvironmentName }}",
-            "prefix": " \uFD03 "
           }
         },
         {
