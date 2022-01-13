@@ -133,7 +133,7 @@
             "prefix": "",
             "postfix": " ",
             "threshold": 150,
-            "style": "austin"
+            "style": "round"
           }
           
         },
