@@ -3,21 +3,16 @@
   "final_space": false,
   "palette": {
     "white": "#DDDDDD",
-    "black": "#111111",
     "red": "#dc2f02",
     "orange": "#f77f00",
     "yellow": "#FBBA18",
-    "grey": "#264653",
-
-    "git-foreground": "p:white",
-    "git-background": "#2a9d8f",
+    "charging-green": "#2a9d8f",
     "path-green": "#3EC669",
     "ps-blue":  "#0973C0",
     "ps-lightblue": "#7FD5EA",
     "ubuntu-orange": "#D24413",
-    "ubuntu-purple": "#77216F"
-    
-},
+    "ubuntu-purple": "#77216F"  
+  },
   "blocks": [
     {
       "type": "prompt",
@@ -83,62 +78,16 @@
         },
         {
           "type": "git",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "p:git-foreground",
-          "background": "p:git-background",
+          "style": "plain",
+          "foreground": "p:white",
+          "background": "transparent",
           "properties": {
             "fetch_status": false,
             "fetch_stash_count": false,
             "fetch_upstream_icon": true,
-            "prefix": "",
-            "postfix": "",
+            "prefix": " (",
+            "postfix": ")",
             "branch_icon": "\ue725 "
-          }
-        },
-        {
-          "type": "battery",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "#193549",
-          "background": "#ffeb3b",
-          "properties": {
-            "battery_icon": "",
-            "discharging_icon": "\u21E3 ",
-            "charging_icon": "\u21E1 ",
-            "charged_icon": "\u0095 ",
-            "color_background": false,
-            "charged_color": "#4caf50",
-            "charging_color": "#40c4ff",
-            "discharging_color": "#ff5722",
-            "prefix": "",
-            "postfix": "",
-            "display_charging": true
-          }
-        },
-        {
-          "type": "executiontime",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "p:white",
-          "foreground_templates": [
-            "{{ if gt .Ms 4999 }}p:white{{ end }}",
-            "{{ if gt .Ms 2000 }}p:black{{ end }}"
-          ],
-          "background": "p:grey",
-          "background_templates": [
-            "{{ if gt .Ms 4999 }}p:red{{ end }}",
-            "{{ if gt .Ms 2000 }}p:yellow{{ end }}"
-          ],
-          "properties": {
-            "threshold": 150,
-            "style": "round",
-            
-            "prefix": "",
-            "postfix": ""
           }
         },
         {
@@ -162,6 +111,49 @@
               "pwsh": "<p:ps-lightblue>\u276F</>",
               "bash": "<p:ubuntu-purple>$</>"
             }
+          }
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "horizontal-offset": -2,
+      "segments": [
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "p:white",
+          "foreground_templates": [
+            "{{ if gt .Ms 4999 }}p:red{{ end }}",
+            "{{ if gt .Ms 2000 }}p:orange{{ end }}"
+          ],
+          "background": "transparent",
+          "properties": {
+            "prefix": "",
+            "postfix": " ",
+            "threshold": 150,
+            "style": "austin"
+          }
+          
+        },
+        {
+          "type": "battery",
+          "style": "plain",
+          "foreground": "p:white",
+          "background": "transparent",
+          "foreground_templates": [
+            "{{if eq \"Charging\" .State.String}}p:charging-green{{end}}",
+            "{{if eq \"Discharging\" .State.String}}p:yellow{{end}}",
+            "{{if eq \"Full\" .State.String}}p:path-green{{end}}"
+          ],
+          "properties": {
+            "discharging_icon": "\uf58b ",
+            "charging_icon": "\uf1e6 ",
+            "charged_icon": "\uf58e ",
+            "prefix": "",
+            "postfix": "\uf8ef"
+            
           }
         }
       ]
