@@ -83,17 +83,28 @@
           "style": "plain",
           "foreground": "p:path-green",
           "properties": {
-            "enable_hyperlink": false,
+            "enable_hyperlink": true,
+            "max_depth": 2,
             "prefix": "",
             "postfix": "",
-            "folder_icon": "\uf07b",
-            "style": "agnoster_full"
+            "folder_icon": "\uf6d7",
+            "mapped_locations": {
+              "~\\Documents": "\uf718",
+              "~\\Desktop": "\uf108",
+              "~\\Videos": "\uf03d",
+              "~\\Pictures": "\uf1c5",
+              "~\\Downloads": "\uf6d9",
+              "~\\qmk_firmware": "\uf812",
+              "~\\qmk_firmware\\keyboards": "\uf812",
+              "~": "\uf7db"
+            },
+            "style": "agnoster_short"
           }
         },
         {
           "type": "git",
           "style": "plain",
-          "foreground": "p:white",
+          "foreground": "p:yellow",
           "background": "transparent",
           "properties": {
             "fetch_status": false,
