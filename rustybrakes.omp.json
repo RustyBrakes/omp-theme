@@ -6,9 +6,10 @@
     "red": "#dc2f02",
     "orange": "#f77f00",
     "yellow": "#FBBA18",
+    "green": "#3EC669",
     "charging-green": "#2a9d8f",
-    "path-green": "#3EC669",
-    "ps-blue":  "#0973C0",
+    "path": "p:green",
+    "ps-blue": "#0973C0",
     "ps-lightblue": "#7FD5EA",
     "ubuntu-orange": "#D24413",
     "ubuntu-purple": "#77216F",
@@ -42,7 +43,7 @@
             "ubuntu": "<p:ubuntu-orange>ubuntu</>",
             "wsl": "wsl",
             "wsl_separator": ":"
-          } 
+          }
         },
         {
           "type": "shell",
@@ -81,7 +82,7 @@
         {
           "type": "path",
           "style": "plain",
-          "foreground": "p:path-green",
+          "foreground": "p:path",
           "properties": {
             "enable_hyperlink": true,
             "max_depth": 2,
@@ -120,7 +121,7 @@
           "style": "plain",
           "properties": {
             "always_enabled": false,
-            "template": "{{ if gt .Code 0 }}<p:red>\ue20d {{.Text}}</>{{ else }}<p:path-green>\uf444</>{{ end }}",
+            "template": "{{ if gt .Code 0 }}<p:red>\ue20d {{.Text}}</>{{ end }}",
             "prefix": " ",
             "postfix": ""
           }
@@ -147,10 +148,6 @@
           "type": "executiontime",
           "style": "plain",
           "foreground": "p:white",
-          "foreground_templates": [
-            "{{ if gt .Ms 4999 }}p:red{{ end }}",
-            "{{ if gt .Ms 2000 }}p:orange{{ end }}"
-          ],
           "background": "transparent",
           "properties": {
             "prefix": "",
@@ -158,7 +155,6 @@
             "threshold": 150,
             "style": "round"
           }
-          
         },
         {
           "type": "battery",
@@ -168,7 +164,7 @@
           "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}p:charging-green{{end}}",
             "{{if eq \"Discharging\" .State.String}}p:yellow{{end}}",
-            "{{if eq \"Full\" .State.String}}p:path-green{{end}}"
+            "{{if eq \"Full\" .State.String}}p:green{{end}}"
           ],
           "properties": {
             "discharging_icon": "\uf58b ",
@@ -176,7 +172,6 @@
             "charged_icon": "\uf58e ",
             "prefix": "",
             "postfix": "\uf8ef"
-            
           }
         }
       ]
