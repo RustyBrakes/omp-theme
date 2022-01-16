@@ -31,10 +31,6 @@
     "debian1": "#d70651",
     "debian2": "#980539",
     "debian3": "#E0E0E0",
-
-    "kali1": "#FFFFFF",
-    "kali2": "#367BF0",
-    "kali3": "#163671",
  
     "mint1": "#86BE43",
     "mint2": "#2E2E2E",
@@ -91,15 +87,29 @@
         {
           "type": "os",
           "style": "plain",
-          "foreground": "p:white",
+          "foreground_templates": [
+            "{{ if eq .OS \"arch\" }}p:arch1{{ end }}",
+            "{{ if eq .OS \"centos\" }}p:centos1{{ end }}",
+            "{{ if eq .OS \"debian\" }}p:debian1{{ end }}",
+            "{{ if eq .OS \"fedora\" }}p:fedora1{{ end }}",
+            "{{ if eq .OS \"gentoo\" }}p:gentoo1{{ end }}",
+            "{{ if eq .OS \"linux\" }}p:linux2{{ end }}",
+            "{{ if eq .OS \"macos\" }}p:macos1{{ end }}",
+            "{{ if eq .OS \"manjaro\" }}p:manjaro1{{ end }}",
+            "{{ if eq .OS \"mint\" }}p:mint1{{ end }}",
+            "{{ if eq .OS \"opensuse\" }}p:opensuse1{{ end }}",
+            "{{ if eq .OS \"raspbian\" }}p:raspbian1{{ end }}",
+            "{{ if eq .OS \"ubuntu\" }}p:ubuntu1{{ end }}",
+            "{{ if eq .OS \"windows\" }}p:windows3{{ end }}",
+            "p:white"
+          ],
           "properties": {
             "prefix": "",
             "postfix": " ",
-            "debian": "<p:debian-pink></>",
-            "windows": "<p:ps-blue>\uf17a</>",
-            "ubuntu": "<p:ubuntu-orange>ubuntu</>",
+            "ubuntu": "ubuntu \uf31b",
+            "centos": "CentOS \uf304",
             "wsl": "wsl",
-            "wsl_separator": ":"
+            "wsl_separator": ": "
           }
         },
         {
@@ -130,7 +140,23 @@
         {
           "type": "time",
           "style": "plain",
-          "foreground": "p:white",
+          "foreground_templates": [
+            "{{ if eq .OS \"arch\" }}p:arch2{{ end }}",
+            "{{ if eq .OS \"centos\" }}p:centos2{{ end }}",
+            "{{ if eq .OS \"debian\" }}p:debian2{{ end }}",
+            "{{ if eq .OS \"fedora\" }}p:fedora2{{ end }}",
+            "{{ if eq .OS \"gentoo\" }}p:gentoo2{{ end }}",
+            "{{ if eq .OS \"kali\" }}p:kali2{{ end }}",
+            "{{ if eq .OS \"linux\" }}p:linux2{{ end }}",
+            "{{ if eq .OS \"macos\" }}p:macos2{{ end }}",
+            "{{ if eq .OS \"manjaro\" }}p:manjaro2{{ end }}",
+            "{{ if eq .OS \"mint\" }}p:mint2{{ end }}",
+            "{{ if eq .OS \"opensuse\" }}p:opensuse2{{ end }}",
+            "{{ if eq .OS \"raspbian\" }}p:raspbian2{{ end }}",
+            "{{ if eq .OS \"ubuntu\" }}p:ubuntu2{{ end }}",
+            "{{ if eq .OS \"windows\" }}p:windows2{{ end }}",
+            "p:white"
+          ],
           "properties": {
             "prefix": "",
             "time_format": "15:04:05"
@@ -140,21 +166,20 @@
           "type": "path",
           "style": "plain",
           "foreground_templates": [
-            "{{ if eq .OS \"macos\" }}p:macos1{{ end }}",
-            "{{ if eq .OS \"ubuntu\" }}p:ubuntu1{{ end }}",
-            "{{ if eq .OS \"debian\" }}p:debian1{{ end }}",
-            "{{ if eq .OS \"kali\" }}p:kali1{{ end }}",
-            "{{ if eq .OS \"mint\" }}p:mint1{{ end }}",
-            "{{ if eq .OS \"arch\" }}p:arch1{{ end }}",
-            "{{ if eq .OS \"fedora\" }}p:fedora1{{ end }}",
-            "{{ if eq .OS \"centos\" }}p:centos1{{ end }}",
-            "{{ if eq .OS \"manjaro\" }}p:manjaro1{{ end }}",
-            "{{ if eq .OS \"raspbian\" }}p:raspbian1{{ end }}",
-            "{{ if eq .OS \"opensuse\" }}p:opensuse1{{ end }}",
-            "{{ if eq .OS \"gentoo\" }}p:gentoo1{{ end }}",
-            "{{ if eq .OS \"windows\" }}p:windows1{{ end }}",
-            "{{ if eq .Shell \"pwsh\" }}p:powershell1{{ end }}",
-            "{{ if eq .OS \"linux\" }}p:linux1{{ end }}",
+            "{{ if eq .OS \"arch\" }}p:arch2{{ end }}",
+            "{{ if eq .OS \"centos\" }}p:centos2{{ end }}",
+            "{{ if eq .OS \"debian\" }}p:debian2{{ end }}",
+            "{{ if eq .OS \"fedora\" }}p:fedora2{{ end }}",
+            "{{ if eq .OS \"gentoo\" }}p:gentoo2{{ end }}",
+            "{{ if eq .OS \"kali\" }}p:kali2{{ end }}",
+            "{{ if eq .OS \"linux\" }}p:linux2{{ end }}",
+            "{{ if eq .OS \"macos\" }}p:macos2{{ end }}",
+            "{{ if eq .OS \"manjaro\" }}p:manjaro2{{ end }}",
+            "{{ if eq .OS \"mint\" }}p:mint2{{ end }}",
+            "{{ if eq .OS \"opensuse\" }}p:opensuse2{{ end }}",
+            "{{ if eq .OS \"raspbian\" }}p:raspbian2{{ end }}",
+            "{{ if eq .OS \"ubuntu\" }}p:ubuntu2{{ end }}",
+            "{{ if eq .OS \"windows\" }}p:windows2{{ end }}",
             "p:green"
           ],
           "properties": {
@@ -170,8 +195,7 @@
               "~\\Pictures": "\uf1c5",
               "~\\Downloads": "\uf6d9",
               "~\\qmk_firmware": "\uf812",
-              "~\\qmk_firmware\\keyboards": "\uf812",
-              "~": "\uf7db"
+              "~\\qmk_firmware\\keyboards": "\uf812"
             },
             "style": "agnoster_short"
           }
