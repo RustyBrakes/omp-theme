@@ -75,16 +75,6 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "root",
-          "style": "plain",
-          "foreground": "p:yellow",
-          "properties": {
-            "prefix": "",
-            "postfix": "",
-            "root_icon": "\uF0E7 "
-          }
-        },
-        {
           "type": "os",
           "style": "plain",
           "foreground_templates": [
@@ -106,6 +96,7 @@
           "properties": {
             "prefix": "",
             "postfix": " ",
+            "windows": "\uf17a ",
             "ubuntu": "ubuntu \uf31b",
             "centos": "CentOS \uf304",
             "wsl": "wsl",
@@ -119,10 +110,11 @@
           "background": "transparent",
           "properties": {
             "prefix": "",
-            "postfix": " ",
+            "postfix": "",
             "mapped_shell_names": {
-              "pwsh": "<p:powershell1>PS \u276F_</>",
-              "bash": "<p:ubuntu-orange>\u276F_</>"
+              "pwsh": "<p:powershell1>PS \u276F_ </>",
+              "bash": "",
+              "zsh": ""
             }
           }
         },
@@ -188,15 +180,6 @@
             "prefix": "",
             "postfix": "",
             "folder_icon": "\uf6d7",
-            "mapped_locations": {
-              "~\\Documents": "\uf718",
-              "~\\Desktop": "\uf108",
-              "~\\Videos": "\uf03d",
-              "~\\Pictures": "\uf1c5",
-              "~\\Downloads": "\uf6d9",
-              "~\\qmk_firmware": "\uf812",
-              "~\\qmk_firmware\\keyboards": "\uf812"
-            },
             "style": "agnoster_short"
           }
         },
@@ -215,24 +198,12 @@
           }
         },
         {
-          "type": "exit",
+          "type": "text",
           "style": "plain",
-          "properties": {
-            "always_enabled": false,
-            "template": "{{ if gt .Code 0 }}<p:red>\ue20d {{.Text}}</>{{ end }}",
-            "prefix": " ",
-            "postfix": ""
-          }
-        },
-        {
-          "type": "shell",
-          "style": "plain",
+          "foreground": "p:white",
           "background": "transparent",
           "properties": {
-            "mapped_shell_names": {
-              "pwsh": "<p:ps-lightblue>\u276F</>",
-              "bash": "<p:ubuntu-purple>$</>"
-            }
+            "template": "{{ if gt .Code 0 }}<p:red>error \uf467</>{{ else }}{{ if eq .Root true }}<p:yellow>\uF0E7</>{{ else }}{{ if eq .OS \"macos\" }}%{{ else }}{{ if eq .OS \"windows\" }}\u276F{{ else }}${{ end }}{{ end }}{{ end }}{{ end }}"
           }
         }
       ]
