@@ -1,4 +1,5 @@
 {
+  "comment": "Read about the features of this theme at https://github.com/RustyBrakes/omp-theme",
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "final_space": false,
   "palette": {
@@ -112,8 +113,8 @@
             "prefix": "",
             "postfix": "",
             "mapped_shell_names": {
-              "pwsh": "<p:powershell1>PS \u276F_ </>",
-              "bash": "",
+              "pwsh": "<p:powershell1>PS \uf68c </>",
+              "bash": "\uf68c",
               "zsh": ""
             }
           }
@@ -151,7 +152,7 @@
           ],
           "properties": {
             "prefix": "",
-            "time_format": "15:04:05"
+            "time_format": "3:04PM"
           }
         },
         {
@@ -184,20 +185,6 @@
           }
         },
         {
-          "type": "git",
-          "style": "plain",
-          "foreground": "p:yellow",
-          "background": "transparent",
-          "properties": {
-            "fetch_status": false,
-            "fetch_stash_count": false,
-            "fetch_upstream_icon": true,
-            "prefix": " (",
-            "postfix": ")",
-            "branch_icon": "\ue725 "
-          }
-        },
-        {
           "type": "text",
           "style": "plain",
           "foreground": "p:white",
@@ -220,9 +207,26 @@
           "background": "transparent",
           "properties": {
             "prefix": "",
-            "postfix": " ",
+            "postfix": "",
             "threshold": 150,
             "style": "round"
+          }
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "trailing_diamond": "\uE0B4",
+          "leading_diamond": " \uE0B6",
+          "foreground": "transparent",
+          "background": "p:yellow",
+          "properties": {
+            "template": "[{{ .UpstreamIcon }}]({{ .UpstreamURL }}){{ .HEAD }}",
+            "fetch_status": true,
+            "fetch_stash_count": false,
+            "fetch_upstream_icon": true,
+            "prefix": "",
+            "postfix": "",
+            "branch_icon": "\ue725 "
           }
         },
         {
