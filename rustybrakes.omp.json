@@ -25,24 +25,24 @@
     "powershell2": "#7FD5EA",
 
     "ubuntu1": "#E95420",
-    "ubuntu2": "#77216F",
-    "ubuntu3": "#5E2750",
+    "ubuntu2": "#BA47AE",
+    "ubuntu3": "#915A83",
     "ubuntu4": "#AEA79F",
 
-    "debian1": "#d70651",
-    "debian2": "#980539",
+    "debian1": "#F1206B",
+    "debian2": "#B21F53",
     "debian3": "#E0E0E0",
  
     "mint1": "#86BE43",
-    "mint2": "#2E2E2E",
+    "mint2": "#505050",
     "mint3": "#FFFFFF",
 
     "arch1": "#1793d1",
-    "arch2": "#333333",
+    "arch2": "#505050",
     "arch3": "#759FBF",
 
-    "fedora1": "#294172",
-    "fedora2": "#3C6EB4",
+    "fedora1": "#435B8C",
+    "fedora2": "#5688CE",
     "fedora3": "#8c8c8c",
 
     "centos1": "#9CCD2A",
@@ -62,7 +62,7 @@
     "opensuse2": "#174F4F",
     "opensuse3": "#35B9AB",
 
-    "gentoo1" : "#54487A",
+    "gentoo1" : "#A189E2",
     "gentoo2" : "#DDDFFF",
     "gentoo3" : "#6E56AF",
 
@@ -113,9 +113,7 @@
             "prefix": "",
             "postfix": "",
             "mapped_shell_names": {
-              "pwsh": "<p:powershell1>PS \uf68c </>",
-              "bash": "\ufcb5 ",
-              "zsh": ""
+              "pwsh": "<p:powershell1>PS \uf68c </>"
             }
           }
         },
@@ -187,7 +185,24 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "p:white",
+          "foreground_templates": [
+            "{{ if eq .OS \"arch\" }}p:arch2{{ end }}",
+            "{{ if eq .OS \"centos\" }}p:centos2{{ end }}",
+            "{{ if eq .OS \"debian\" }}p:debian2{{ end }}",
+            "{{ if eq .OS \"fedora\" }}p:fedora2{{ end }}",
+            "{{ if eq .OS \"gentoo\" }}p:gentoo2{{ end }}",
+            "{{ if eq .OS \"kali\" }}p:kali2{{ end }}",
+            "{{ if eq .OS \"linux\" }}p:linux2{{ end }}",
+            "{{ if eq .OS \"macos\" }}p:macos2{{ end }}",
+            "{{ if eq .OS \"manjaro\" }}p:manjaro2{{ end }}",
+            "{{ if eq .OS \"mint\" }}p:mint2{{ end }}",
+            "{{ if eq .OS \"opensuse\" }}p:opensuse2{{ end }}",
+            "{{ if eq .OS \"raspbian\" }}p:raspbian2{{ end }}",
+            "{{ if eq .OS \"ubuntu\" }}p:ubuntu2{{ end }}",
+            "{{ if eq .Shell \"pwsh\" }}p:powershell2{{ end }}",
+            "{{ if eq .OS \"windows\" }}p:windows2{{ end }}",
+            "p:green"
+          ],
           "background": "transparent",
           "properties": {
             "template": "{{ if gt .Code 0 }}<p:red>error \uf467</>{{ else }}{{ if eq .Root true }}<p:yellow>\uF0E7</>{{ else }}{{ if eq .OS \"macos\" }}%{{ else }}{{ if eq .OS \"windows\" }}\u276F{{ else }}${{ end }}{{ end }}{{ end }}{{ end }}"
@@ -240,9 +255,9 @@
             "{{if eq \"Full\" .State.String}}p:green{{end}}"
           ],
           "properties": {
-            "discharging_icon": "\uf58b ",
-            "charging_icon": "\uf1e6 ",
-            "charged_icon": "\uf58e ",
+            "discharging_icon": "\uf58c ",
+            "charging_icon": "\uf58f ",
+            "charged_icon": "\uf584 ",
             "prefix": "",
             "postfix": "\uf8ef"
           }
