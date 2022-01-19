@@ -10,11 +10,14 @@ Each OS colour scheme can be found and customized at the top of the theme. I sta
 
 #### The console marker also changes dynamically!
 
-| Linux          | $              |                                                                                                                           |
-| MacOS          | %              |                                                                                                                           |
-| Windows        | >              |                                                                                                                           |
-| Error Code > 0 | error X        | ![error x](https://user-images.githubusercontent.com/6842623/150187832-c22d9af5-5a8d-4224-b09d-d42655191aba.png)          |
-| Root           | Lightning Bolt | ![delete system 32](https://user-images.githubusercontent.com/6842623/150187841-7c1b9998-34b9-423c-9e93-7ee445300bd3.png) |
+| Linux          | $              |
+| MacOS          | %              | 
+| Windows        | >              |
+| Error Code > 0 | error X        |
+| Root           | Lightning Bolt |
 
+Error example
+![error x](https://user-images.githubusercontent.com/6842623/150187832-c22d9af5-5a8d-4224-b09d-d42655191aba.png)
 
-
+Root/Admin example
+![delete system 32](https://user-images.githubusercontent.com/6842623/150187841-7c1b9998-34b9-423c-9e93-7ee445300bd3.png)
