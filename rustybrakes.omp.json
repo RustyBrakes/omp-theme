@@ -114,7 +114,7 @@
             "postfix": "",
             "mapped_shell_names": {
               "pwsh": "<p:powershell1>PS \uf68c </>",
-              "bash": "\uf68c",
+              "bash": "\ufcb5 ",
               "zsh": ""
             }
           }
