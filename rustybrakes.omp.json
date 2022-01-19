@@ -107,13 +107,28 @@
         {
           "type": "shell",
           "style": "plain",
-          "foreground": "p:white",
+          "foreground_templates": [
+            "{{ if eq .OS \"arch\" }}p:arch3{{ end }}",
+            "{{ if eq .OS \"centos\" }}p:centos3{{ end }}",
+            "{{ if eq .OS \"debian\" }}p:debian3{{ end }}",
+            "{{ if eq .OS \"fedora\" }}p:fedora3{{ end }}",
+            "{{ if eq .OS \"gentoo\" }}p:gentoo3{{ end }}",
+            "{{ if eq .OS \"linux\" }}p:linux3{{ end }}",
+            "{{ if eq .OS \"macos\" }}p:macos3{{ end }}",
+            "{{ if eq .OS \"manjaro\" }}p:manjaro3{{ end }}",
+            "{{ if eq .OS \"mint\" }}p:mint3{{ end }}",
+            "{{ if eq .OS \"opensuse\" }}p:opensuse3{{ end }}",
+            "{{ if eq .OS \"raspbian\" }}p:raspbian3{{ end }}",
+            "{{ if eq .OS \"ubuntu\" }}p:ubuntu3{{ end }}",
+            "{{ if eq .OS \"windows\" }}p:windows3{{ end }}",
+            "p:white"
+          ],
           "background": "transparent",
           "properties": {
             "prefix": "",
-            "postfix": "",
+            "postfix": " ",
             "mapped_shell_names": {
-              "pwsh": "<p:powershell1>PS \uf68c </>"
+              "pwsh": "<p:powershell1>PS \uf68c</>"
             }
           }
         },
