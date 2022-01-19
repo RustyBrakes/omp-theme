@@ -30,7 +30,7 @@
     "ubuntu3": "#AEA79F",
 
     "debian1": "#F1206B",
-    "debian2": "#B21F53",
+    "debian2": "#E0E0E0",
     "debian3": "#E0E0E0",
  
     "mint1": "#86BE43",
@@ -270,8 +270,9 @@
             "discharging_icon": "\uf58c ",
             "charging_icon": "\uf58f ",
             "charged_icon": "\uf584 ",
-            "prefix": "",
-            "postfix": "\uf8ef"
+            "prefix": " ",
+            "postfix": "",
+            "template": "{{ if eq \"Unknown\" .State.String}}\uf590{{ else }}{{.Icon}}{{ end }}{{ if not .Error }}{{.Percentage\uf8ef}}{{ end }}{{.Error}}"
           }
         }
       ]
