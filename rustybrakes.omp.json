@@ -94,7 +94,7 @@
           "properties": {
             "prefix": "",
             "postfix": " ",
-            "windows": "\uf17a ",
+            "windows": "\uf17a",
             "ubuntu": "ubuntu \uf31b",
             "centos": "CentOS \uf304",
             "wsl": "wsl",
