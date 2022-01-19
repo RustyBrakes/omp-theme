@@ -7,8 +7,8 @@
     "red": "#dc2f02",
     "orange": "#f77f00",
     "yellow": "#FBBA18",
-    "green": "#3EC669",
-    "path": "p:green",
+    "green": "#20aa0e",
+    "light-green": "#67c75a",
 
     "windows1": "#19B7A4",
     "windows2": "#FFFFFF",
@@ -23,11 +23,11 @@
 
     "powershell1": "#0973C0",
     "powershell2": "#7FD5EA",
+    "azure-blue": "#0083CC",
 
     "ubuntu1": "#E95420",
     "ubuntu2": "#BA47AE",
-    "ubuntu3": "#915A83",
-    "ubuntu4": "#AEA79F",
+    "ubuntu3": "#AEA79F",
 
     "debian1": "#F1206B",
     "debian2": "#B21F53",
@@ -64,10 +64,7 @@
 
     "gentoo1" : "#A189E2",
     "gentoo2" : "#DDDFFF",
-    "gentoo3" : "#6E56AF",
-
-    "azure-blue": "#0083CC",
-    "battery-charging-green": "#2a9d8f"
+    "gentoo3" : "#6E56AF"
 
   },
   "blocks": [
@@ -265,7 +262,7 @@
           "foreground": "p:white",
           "background": "transparent",
           "foreground_templates": [
-            "{{if eq \"Charging\" .State.String}}p:battery-charging-green{{end}}",
+            "{{if eq \"Charging\" .State.String}}p:light-green{{end}}",
             "{{if eq \"Discharging\" .State.String}}p:yellow{{end}}",
             "{{if eq \"Full\" .State.String}}p:green{{end}}"
           ],
