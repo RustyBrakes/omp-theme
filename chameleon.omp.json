@@ -10,6 +10,8 @@
     "green": "#20aa0e",
     "light-green": "#67c75a",
 
+    "git": "p:yellow",
+
     "windows1": "#19B7A4",
     "windows2": "#FFFFFF",
     "windows3": "#0079D8",
@@ -62,9 +64,9 @@
     "opensuse2": "#174F4F",
     "opensuse3": "#35B9AB",
 
-    "gentoo1" : "#A189E2",
-    "gentoo2" : "#DDDFFF",
-    "gentoo3" : "#6E56AF"
+    "gentoo1": "#A189E2",
+    "gentoo2": "#DDDFFF",
+    "gentoo3": "#6E56AF"
 
   },
   "blocks": [
@@ -94,11 +96,19 @@
           "properties": {
             "prefix": "",
             "postfix": " ",
-            "windows": "\uf17a",
+            "windows": "\ue70f",
             "ubuntu": "ubuntu \uf31b",
             "centos": "CentOS \uf304",
             "wsl": "wsl",
             "wsl_separator": ": "
+          }
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "p:white",
+          "properties": {
+            "template": "{{ if .SSHSession }}\uF817 {{ end }}"
           }
         },
         {
@@ -245,12 +255,8 @@
           "trailing_diamond": "\uE0B4",
           "leading_diamond": " \uE0B6",
           "foreground": "transparent",
-          "background": "p:yellow",
+          "background": "p:git",
           "properties": {
-            "template": "[{{ .UpstreamIcon }}]({{ .UpstreamURL }}){{ .HEAD }}",
-            "fetch_status": true,
-            "fetch_stash_count": false,
-            "fetch_upstream_icon": true,
             "prefix": "",
             "postfix": "",
             "branch_icon": "\ue725 "
