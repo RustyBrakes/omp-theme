@@ -9,66 +9,49 @@
     "yellow": "#FBBA18",
     "green": "#20aa0e",
     "light-green": "#67c75a",
-
     "git": "p:yellow",
-
+    "powershell1": "#0973C0",
+    "powershell2": "#7FD5EA",
+    "azure-blue": "#0083CC",
     "windows1": "#0079D8",
-    "windows2": "#FFFFFF",
+    "windows2": "#DDDDDD",
     "windows3": "#19B7A4",
-
     "macos1": "#AEAEB2",
     "macos2": "#636366",
     "macos3": "#D1D1D6",
-
-    "linux1": "#FFFFFF",
+    "linux1": "#DDDDDD",
     "linux2": "#FFBB01",
-
-    "powershell1": "#0973C0",
-    "powershell2": "#7FD5EA",
-
-    "azure-blue": "#0083CC",
-
     "ubuntu1": "#E95420",
     "ubuntu2": "#BA47AE",
     "ubuntu3": "#AEA79F",
-
     "debian1": "#F1206B",
     "debian2": "#F1206B",
     "debian3": "#E0E0E0",
- 
     "mint1": "#86BE43",
     "mint2": "#666666",
-    "mint3": "#FFFFFF",
-
+    "mint3": "#DDDDDD",
     "arch1": "#1793d1",
     "arch2": "#666666",
     "arch3": "#759FBF",
-
-    "fedora1": "#435B8C",
-    "fedora2": "#5688CE",
+    "fedora1": "#0c45b8",
+    "fedora2": "#51A2DA",
     "fedora3": "#8c8c8c",
-
     "centos1": "#9CCD2A",
     "centos2": "#EFA724",
     "centos3": "#A14F8C",
     "centos4": "#262577",
-
     "manjaro1": "#34BE5B",
     "manjaro2": "#16A085",
-    "manjaro3": "#FFFFFF",
-
+    "manjaro3": "#DDDDDD",
     "raspbian1": "#C41949",
     "raspbian2": "#6BC048",
-    "raspbian3": "#FFFFFF",
-
+    "raspbian3": "#DDDDDD",
     "opensuse1": "#73BA25",
     "opensuse2": "#174F4F",
     "opensuse3": "#35B9AB",
-
     "gentoo1": "#A189E2",
     "gentoo2": "#DDDFFF",
     "gentoo3": "#6E56AF"
-
   },
   "blocks": [
     {
@@ -193,6 +176,7 @@
             "{{ if eq .OS \"opensuse\" }}p:opensuse2{{ end }}",
             "{{ if eq .OS \"raspbian\" }}p:raspbian2{{ end }}",
             "{{ if eq .OS \"ubuntu\" }}p:ubuntu2{{ end }}",
+            "{{ if eq .Shell \"pwsh\" }}p:powershell2{{ end }}",
             "{{ if eq .OS \"windows\" }}p:windows2{{ end }}",
             "p:green"
           ],
