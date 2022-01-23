@@ -10,19 +10,19 @@ This theme wouldn't have been possible without the hard work of creator/maintain
 
 #### Features:
 
-- Prompt colours change dynamically based on OS and Shell
+- Prompt colours will change dynamically based on OS and Shell
 
-- Console marker dynamically updates for:
+- Console marker will dynamically update for:
   
-  - Windows (`&#10097;`)
+  - Windows `❱`
   
-  - MacOS (`%`)
+  - MacOS `%`
   
-  - Linux (`$`)
+  - Linux `$`
 
-- Console marker replaced by `error &#10006;` in red when last command gave an error
+- Console marker replaced by `error ✖` in red when last command gave an error
 
-- Console marker replaced by `yellow lightning` when using prompt as root or admin
+- Console marker replaced by `yellow lightning` when using prompt as root or admin (see Powershell example in screenshot above)
 
 - Execution time shown on far right when execution was greater than 150ms
 
@@ -36,4 +36,10 @@ This theme wouldn't have been possible without the hard work of creator/maintain
   
   - Green "battery charged" icon when full
 
+- Azure Shell marker
+
 **N.B.** I had originally chosen the OS colours to be as close to the official hexadecimal values as I could find, but sadly many were just too dark to read. I have tried to boost the brightness while keeping the correct hues.
+
+
+### To Do:
+- [ ] Waiting on a standardized template which will allow more detailed battery iconography
