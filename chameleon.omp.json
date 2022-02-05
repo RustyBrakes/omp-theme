@@ -1,66 +1,10 @@
 {
-  "comment": "Read about the features of this theme at https://github.com/RustyBrakes/omp-theme",
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "final_space": false,
-  "palette": {
-    "white": "#DDDDDD",
-    "red": "#dc2f02",
-    "orange": "#f77f00",
-    "yellow": "#FBBA18",
-    "green": "#20aa0e",
-    "light-green": "#67c75a",
-    "git": "p:yellow",
-    "powershell1": "#0973C0",
-    "powershell2": "#7FD5EA",
-    "azure-blue": "#0083CC",
-    "windows1": "#0079D8",
-    "windows2": "#DDDDDD",
-    "windows3": "#19B7A4",
-    "macos1": "#AEAEB2",
-    "macos2": "#636366",
-    "macos3": "#D1D1D6",
-    "linux1": "#DDDDDD",
-    "linux2": "#FFBB01",
-    "ubuntu1": "#E95420",
-    "ubuntu2": "#BA47AE",
-    "ubuntu3": "#AEA79F",
-    "debian1": "#F1206B",
-    "debian2": "#F1206B",
-    "debian3": "#E0E0E0",
-    "mint1": "#86BE43",
-    "mint2": "#666666",
-    "mint3": "#DDDDDD",
-    "arch1": "#1793d1",
-    "arch2": "#666666",
-    "arch3": "#759FBF",
-    "fedora1": "#0c45b8",
-    "fedora2": "#51A2DA",
-    "fedora3": "#8c8c8c",
-    "centos1": "#9CCD2A",
-    "centos2": "#EFA724",
-    "centos3": "#A14F8C",
-    "centos4": "#262577",
-    "manjaro1": "#34BE5B",
-    "manjaro2": "#16A085",
-    "manjaro3": "#DDDDDD",
-    "raspbian1": "#C41949",
-    "raspbian2": "#6BC048",
-    "raspbian3": "#DDDDDD",
-    "opensuse1": "#73BA25",
-    "opensuse2": "#174F4F",
-    "opensuse3": "#35B9AB",
-    "gentoo1": "#A189E2",
-    "gentoo2": "#DDDFFF",
-    "gentoo3": "#6E56AF"
-  },
   "blocks": [
     {
-      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "type": "os",
-          "style": "plain",
           "foreground_templates": [
             "{{ if eq .OS \"arch\" }}p:arch1{{ end }}",
             "{{ if eq .OS \"centos\" }}p:centos1{{ end }}",
@@ -78,26 +22,24 @@
             "p:white"
           ],
           "properties": {
-            "prefix": "",
-            "postfix": " ",
-            "windows": "\ue70f",
-            "ubuntu": "ubuntu \uf31b",
+            "template": "{{ if .WSL }}wsl: {{ end }}{{.Icon}} ",
             "centos": "CentOS \uf304",
-            "wsl": "wsl",
-            "wsl_separator": ": "
-          }
+            "ubuntu": "ubuntu \uf31b",
+            "windows": "\ue70f"
+          },
+          "style": "plain",
+          "type": "os"
         },
         {
-          "type": "session",
-          "style": "plain",
           "foreground": "p:white",
           "properties": {
-            "template": "{{ if .SSHSession }}\uF817 {{ end }}"
-          }
+            "template": " {{ if .SSHSession }}\uf817 {{ end }} "
+          },
+          "style": "plain",
+          "type": "session"
         },
         {
-          "type": "shell",
-          "style": "plain",
+          "background": "transparent",
           "foreground_templates": [
             "{{ if eq .OS \"arch\" }}p:arch3{{ end }}",
             "{{ if eq .OS \"centos\" }}p:centos3{{ end }}",
@@ -114,29 +56,26 @@
             "{{ if eq .OS \"windows\" }}p:windows3{{ end }}",
             "p:white"
           ],
-          "background": "transparent",
           "properties": {
-            "prefix": "",
-            "postfix": " ",
             "mapped_shell_names": {
-              "pwsh": "<p:powershell1>PS \uf68c</>"
-            }
-          }
-        },
-        {
-          "type": "az",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
-          "foreground": "p:azure-blue",
-          "background": "transparent",
-          "properties": {
-            "template": "{{ .EnvironmentName }}",
-            "prefix": "\uFD03 "
-          }
-        },
-        {
-          "type": "time",
+              "pwsh": "<p:powershell1>powershell</>"
+            },
+            "template": "{{ .Name }} "
+          },
           "style": "plain",
+          "type": "shell"
+        },
+        {
+          "background": "transparent",
+          "foreground": "p:azure-blue",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "template": "\ufd03 {{ .EnvironmentName }} "
+          },
+          "style": "powerline",
+          "type": "az"
+        },
+        {
           "foreground_templates": [
             "{{ if eq .OS \"arch\" }}p:arch2{{ end }}",
             "{{ if eq .OS \"centos\" }}p:centos2{{ end }}",
@@ -155,13 +94,13 @@
             "p:white"
           ],
           "properties": {
-            "prefix": "",
+            "template": "{{ .CurrentDate | date .Format }} ",
             "time_format": "3:04PM"
-          }
+          },
+          "style": "plain",
+          "type": "time"
         },
         {
-          "type": "path",
-          "style": "plain",
           "foreground_templates": [
             "{{ if eq .OS \"arch\" }}p:arch2{{ end }}",
             "{{ if eq .OS \"centos\" }}p:centos2{{ end }}",
@@ -181,17 +120,16 @@
             "p:green"
           ],
           "properties": {
-            "enable_hyperlink": true,
-            "max_depth": 2,
-            "prefix": "",
-            "postfix": "",
             "folder_icon": "\uf6d7",
-            "style": "agnoster_short"
-          }
+            "max_depth": 2,
+            "style": "agnoster_short",
+            "template": "{{ .Path }}"
+          },
+          "style": "plain",
+          "type": "path"
         },
         {
-          "type": "text",
-          "style": "plain",
+          "background": "transparent",
           "foreground_templates": [
             "{{ if eq .OS \"arch\" }}p:arch1{{ end }}",
             "{{ if eq .OS \"centos\" }}p:centos1{{ end }}",
@@ -209,63 +147,112 @@
             "{{ if eq .OS \"windows\" }}p:windows1{{ end }}",
             "p:white"
           ],
-          "background": "transparent",
           "properties": {
-            "template": "{{ if gt .Code 0 }}<p:red>error \uf467</>{{ else }}{{ if eq .Root true }}<p:yellow>\uF0E7</>{{ else }}{{ if eq .OS \"macos\" }}%{{ else }}{{ if eq .OS \"windows\" }}\u276F{{ else }}${{ end }}{{ end }}{{ end }}{{ end }}"
-          }
+            "template": " {{ if gt .Code 0 }}<p:red>error \uf467</>{{ else }}{{ if eq .Root true }}<p:yellow>\uf0e7</>{{ else }}{{ if eq .OS \"macos\" }}%{{ else }}{{ if eq .OS \"windows\" }}\u276f{{ else }}${{ end }}{{ end }}{{ end }}{{ end }} "
+          },
+          "style": "plain",
+          "type": "text"
         }
-      ]
+      ],
+      "type": "prompt"
     },
     {
-      "type": "rprompt",
       "alignment": "right",
-      "horizontal-offset": -2,
       "segments": [
         {
-          "type": "executiontime",
-          "style": "plain",
-          "foreground": "p:white",
           "background": "transparent",
+          "foreground": "p:white",
           "properties": {
-            "prefix": "",
-            "postfix": "",
-            "threshold": 150,
-            "style": "round"
-          }
+            "style": "round",
+            "template": "{{ .FormattedMs }}",
+            "threshold": 150
+          },
+          "style": "plain",
+          "type": "executiontime"
         },
         {
-          "type": "git",
-          "style": "diamond",
-          "trailing_diamond": "\uE0B4",
-          "leading_diamond": " \uE0B6",
-          "foreground": "transparent",
           "background": "p:git",
+          "foreground": "transparent",
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
           "properties": {
-            "prefix": "",
-            "postfix": "",
-            "branch_icon": "\ue725 "
-          }
+            "branch_icon": "\ue725 ",
+            "template": "{{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}"
+          },
+          "style": "diamond",
+          "type": "git"
         },
         {
-          "type": "battery",
-          "style": "plain",
-          "foreground": "p:white",
           "background": "transparent",
+          "foreground": "p:white",
           "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}p:light-green{{end}}",
             "{{if eq \"Discharging\" .State.String}}p:yellow{{end}}",
             "{{if eq \"Full\" .State.String}}p:green{{end}}"
           ],
           "properties": {
-            "discharging_icon": "\uf58c ",
-            "charging_icon": "\uf58f ",
             "charged_icon": "\uf584 ",
-            "prefix": " ",
-            "postfix": "",
-            "template": "{{if eq \"Unknown\" .State.String}}\uf590 {{ else }}{{.Icon}}{{ end }}{{ if not .Error }}{{.Percentage}}\uf8ef{{ end }}{{.Error}}"
-          }
+            "charging_icon": "\uf58f ",
+            "discharging_icon": "\uf58c ",
+            "template": " {{if eq \"Unknown\" .State.String}}\uf590 {{ else }}{{.Icon}}{{ end }}{{ if not .Error }}{{.Percentage}}\uf8ef{{ end }}{{.Error}}"
+            },
+          "style": "plain",
+          "type": "battery"
         }
-      ]
+      ],
+      "type": "rprompt"
     }
-  ]
+  ],
+  "palette": {
+    "arch1": "#1793d1",
+    "arch2": "#666666",
+    "arch3": "#759FBF",
+    "azure-blue": "#0083CC",
+    "centos1": "#9CCD2A",
+    "centos2": "#EFA724",
+    "centos3": "#A14F8C",
+    "centos4": "#262577",
+    "debian1": "#F1206B",
+    "debian2": "#F1206B",
+    "debian3": "#E0E0E0",
+    "fedora1": "#0c45b8",
+    "fedora2": "#51A2DA",
+    "fedora3": "#8c8c8c",
+    "gentoo1": "#A189E2",
+    "gentoo2": "#DDDFFF",
+    "gentoo3": "#6E56AF",
+    "git": "p:yellow",
+    "green": "#20aa0e",
+    "light-green": "#67c75a",
+    "linux1": "#DDDDDD",
+    "linux2": "#FFBB01",
+    "macos1": "#AEAEB2",
+    "macos2": "#636366",
+    "macos3": "#D1D1D6",
+    "manjaro1": "#34BE5B",
+    "manjaro2": "#16A085",
+    "manjaro3": "#DDDDDD",
+    "mint1": "#86BE43",
+    "mint2": "#666666",
+    "mint3": "#DDDDDD",
+    "opensuse1": "#73BA25",
+    "opensuse2": "#174F4F",
+    "opensuse3": "#35B9AB",
+    "orange": "#f77f00",
+    "powershell1": "#0973C0",
+    "powershell2": "#7FD5EA",
+    "raspbian1": "#C41949",
+    "raspbian2": "#6BC048",
+    "raspbian3": "#DDDDDD",
+    "red": "#dc2f02",
+    "ubuntu1": "#E95420",
+    "ubuntu2": "#BA47AE",
+    "ubuntu3": "#DDDDDD",
+    "white": "#DDDDDD",
+    "windows1": "#0079D8",
+    "windows2": "#DDDDDD",
+    "windows3": "#19B7A4",
+    "yellow": "#FBBA18"
+  },
+  "version": 1
 }
