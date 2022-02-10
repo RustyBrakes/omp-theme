@@ -123,7 +123,7 @@
             "folder_icon": "\uf6d7",
             "max_depth": 2,
             "style": "agnoster_short",
-            "template": "{{ .Path }}"
+            "template": "{{ path .Path .Location }}"
           },
           "style": "plain",
           "type": "path"
