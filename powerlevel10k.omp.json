@@ -1,0 +1,165 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "palette": {
+    "white": "#CCCCCC",
+    "secondary": "#3B78FF",
+    "primary": "#61D6D6",
+    "red": "#E74856",
+    "yellow": "#C19C00",
+    "light-yellow": "#F9F1A5",
+    "brackets": "#767676"
+  },
+  "blocks": [
+    // Left side prompt
+    {
+      "alignment": "left",
+      "newline": true,
+      "type": "prompt",
+      "segments": [
+        // Left bracket
+        {
+          "foreground": "p:brackets",
+          "properties": {
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "\u256D\u2574",
+          "type": "path"
+        },
+        // OS Icon
+        {
+          "properties": {
+            "centos": "CentOS \uf304",
+            "ubuntu": "ubuntu \uf31b",
+            "windows": "\ue62a"
+          },
+          "foreground": "p:white",
+          "style": "plain",
+          "template": "{{ if .WSL }}wsl: {{ end }}{{.Icon}} ",
+          "type": "os"
+        },
+        // SSH Indicator
+        {
+          "foreground": "p:white",
+          "style": "plain",
+          "template": " {{ if .SSHSession }}\udb80\udf18 {{ end }} ",
+          "type": "session"
+        },
+        // Shell type indicator
+        {
+          "style": "plain",
+          "foreground": "p:secondary",
+          "template": "{{ .Name }} ",
+          "type": "shell",
+          "properties": {
+            "mapped_shell_names": {
+              "pwsh": "PS"
+            }
+          }
+        },
+        // Path (parent)
+        {
+          "properties": {
+            "folder_icon": "..",
+            "max_depth": 2,
+            "style": "agnoster_short"
+          },
+          "foreground":"p:secondary",
+          "template": "{{if eq .PWD \"~\"}}{{else}}{{ trimSuffix .Folder .Path}}{{ end }}",
+          "type": "path"
+        },
+        // Path (current folder)
+        {
+          "type": "path",
+          "foreground": "p:primary",
+          "template": "{{if eq .PWD \"~\"}}~{{else}}{{ .Folder }}{{ end }} "
+        },
+        // Git
+        {
+          "foreground": "p:light-yellow",
+          "style": "plain",
+          "template": "{{ .HEAD }} ",
+          "type": "git"
+        }
+      ]
+    },
+    // Right side prompt
+    {
+      "alignment": "right",
+      "type": "prompt",
+      "filler": "<p:brackets>\u00b7</>",
+      "segments": [
+        {
+          // Execution time (if over 150ms)
+          "background": "transparent",
+          "foreground": "p:light-yellow",
+          "properties": {
+            "style": "round",
+            "threshold": 150
+          },
+          "style": "plain",
+          "template": " \uf520 {{ .FormattedMs }}",
+          "type": "executiontime"
+        },
+        {
+          // Battery
+          "background": "transparent",
+          "foreground": "p:white",
+          "foreground_templates": [
+            "{{if eq \"Charging\" .State.String}}p:secondary{{end}}",
+            "{{if eq \"Discharging\" .State.String}}p:yellow{{end}}",
+            "{{if eq \"Full\" .State.String}}p:secondary{{end}}"
+          ],
+          "properties": {
+            "charged_icon": "\udb80\udc79",
+            "charging_icon": "\udb80\udc84",
+            "discharging_icon": "\udb80\udc83"
+          },
+          "style": "plain",
+          "template": " {{if eq \"Unknown\" .State.String}}\udb80\udc91{{ else }}{{.Icon}}{{ end }}{{ if .Error }}{{.Error}}{{ end }}",
+          "type": "battery"
+        },
+        {
+          // Time
+          "foreground": "p:primary",
+          "properties": {
+            "time_format": "3:04PM"
+          },
+          "style": "plain",
+          "template": " {{ .CurrentDate | date .Format }}",
+          "type": "time"
+        }
+      ]
+    },
+    // Lower left prompt
+    {
+      "alignment": "left",
+      "newline": true,
+      "type": "prompt",
+      "segments": [
+        {
+          // Lower bracket
+          "foreground": "p:brackets",
+          "properties": {
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "\u2570\u2574",
+          "type": "text"
+        },
+        {
+          // Prompt colour and character
+          "style": "plain",
+          "foreground": "p:primary",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:red{{end}}",
+            "{{if eq .Root true}}p:yellow{{end}}"
+          ],
+          "template": "{{if eq .Root true}}\u26a1{{ else }}\uf054{{ end }} ",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
