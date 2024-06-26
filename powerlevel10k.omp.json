@@ -2,13 +2,15 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 2,
   "palette": {
-    "white": "#CCCCCC",
-    "secondary": "#3B78FF",
-    "primary": "#61D6D6",
+    "white": "#FFFFFF",
+    "battery": "#61d6d6",
+    "prompt": "#61D6D6",
+    "windows": "#3a96dd",
     "red": "#E74856",
-    "yellow": "#C19C00",
+    "yellow": "#f1cc25",
     "light-yellow": "#F9F1A5",
-    "brackets": "#767676"
+    "brackets": "#767676",
+    "black": "#000000"
   },
   "blocks": [
     // Left side prompt
@@ -32,7 +34,7 @@
           "properties": {
             "centos": "CentOS \uf304",
             "ubuntu": "ubuntu \uf31b",
-            "windows": "\ue62a"
+            "windows": "\udb81\uddb3"
           },
           "foreground": "p:white",
           "style": "plain",
@@ -49,7 +51,7 @@
         // Shell type indicator
         {
           "style": "plain",
-          "foreground": "p:secondary",
+          "foreground": "p:white",
           "template": "{{ .Name }} ",
           "type": "shell",
           "properties": {
@@ -65,22 +67,15 @@
             "max_depth": 2,
             "style": "agnoster_short"
           },
-          "foreground":"p:secondary",
+          "foreground":"p:grey",
           "template": "{{if eq .PWD \"~\"}}{{else}}{{ trimSuffix .Folder .Path}}{{ end }}",
           "type": "path"
         },
         // Path (current folder)
         {
           "type": "path",
-          "foreground": "p:primary",
+          "foreground": "p:windows",
           "template": "{{if eq .PWD \"~\"}}~{{else}}{{ .Folder }}{{ end }} "
-        },
-        // Git
-        {
-          "foreground": "p:light-yellow",
-          "style": "plain",
-          "template": "{{ .HEAD }} ",
-          "type": "git"
         }
       ]
     },
@@ -88,7 +83,7 @@
     {
       "alignment": "right",
       "type": "prompt",
-      "filler": "<p:brackets>\u00b7</>",
+      "filler": "<p:brackets>\u2500</>",
       "segments": [
         {
           // Execution time (if over 150ms)
@@ -102,14 +97,27 @@
           "template": " \uf520 {{ .FormattedMs }}",
           "type": "executiontime"
         },
+        // Git
+        {
+          "foreground": "p:black",
+          "background": "p:yellow",
+          "style": "diamond",
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "properties": {
+            "branch_icon": "\ue725 "
+          },
+          "template": "{{ .HEAD }} ",
+          "type": "git"
+        },
         {
           // Battery
           "background": "transparent",
           "foreground": "p:white",
           "foreground_templates": [
-            "{{if eq \"Charging\" .State.String}}p:secondary{{end}}",
+            "{{if eq \"Charging\" .State.String}}p:battery{{end}}",
             "{{if eq \"Discharging\" .State.String}}p:yellow{{end}}",
-            "{{if eq \"Full\" .State.String}}p:secondary{{end}}"
+            "{{if eq \"Full\" .State.String}}p:battery{{end}}"
           ],
           "properties": {
             "charged_icon": "\udb80\udc79",
@@ -122,9 +130,9 @@
         },
         {
           // Time
-          "foreground": "p:primary",
+          "foreground": "p:grey",
           "properties": {
-            "time_format": "3:04PM"
+            "time_format": "15:04:05 "
           },
           "style": "plain",
           "template": " {{ .CurrentDate | date .Format }}",
@@ -151,7 +159,7 @@
         {
           // Prompt colour and character
           "style": "plain",
-          "foreground": "p:primary",
+          "foreground": "p:prompt",
           "foreground_templates": [
             "{{ if gt .Code 0 }}p:red{{end}}",
             "{{if eq .Root true}}p:yellow{{end}}"
